@@ -1,20 +1,21 @@
 "use client";
 
 import * as React from "react";
-import { HTMLMotionProps, Variants, motion } from "motion/react";
-
+import { HTMLMotionProps, Variants, motion, Transition } from "framer-motion"; // Changed from "motion/react" to "framer-motion"
 import { cn } from "@/lib/utils";
 
 interface GalleryGridCellProps extends HTMLMotionProps<"div"> {
   index: number;
 }
-const SPRING_TRANSITION_CONFIG = {
+
+const SPRING_TRANSITION_CONFIG: Transition = {
   type: "spring",
   stiffness: 100,
   damping: 16,
   mass: 0.75,
   restDelta: 0.005,
 };
+
 const filterVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -25,11 +26,12 @@ const filterVariants: Variants = {
     filter: "blur(0px)",
   },
 };
+
 const areaClasses = [
-  "col-start-2 col-end-3 row-start-1 row-end-3", // .div1
-  "col-start-1 col-end-2 row-start-2 row-end-4", // .div2
-  "col-start-1 col-end-2 row-start-4 row-end-6", // .div3
-  "col-start-2 col-end-3 row-start-3 row-end-5", // .div4
+  "col-start-2 col-end-3 row-start-1 row-end-3",
+  "col-start-1 col-end-2 row-start-2 row-end-4",
+  "col-start-1 col-end-2 row-start-4 row-end-6",
+  "col-start-2 col-end-3 row-start-3 row-end-5",
 ];
 
 export const ContainerStagger = React.forwardRef<
@@ -40,12 +42,11 @@ export const ContainerStagger = React.forwardRef<
     <motion.div
       ref={ref}
       initial="hidden"
-      whileInView={"visible"}
+      whileInView="visible"
       viewport={{ once: true }}
       transition={{
-        staggerChildren: transition?.staggerChildren ?? 0.2,
-        delayChildren: transition?.delayChildren ?? 0.2,
-        duration: 0.3,
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
         ...transition,
       }}
       {...props}
@@ -64,7 +65,6 @@ export const ContainerAnimated = React.forwardRef<
       variants={filterVariants}
       transition={{
         ...SPRING_TRANSITION_CONFIG,
-        duration: 0.3,
         ...transition,
       }}
       {...props}
@@ -88,24 +88,30 @@ export const GalleryGrid = React.forwardRef<
     />
   );
 });
-GalleryGrid.displayName = "ContainerSticky";
+GalleryGrid.displayName = "GalleryGrid";
 
 export const GalleryGridCell = React.forwardRef<
   HTMLDivElement,
   GalleryGridCellProps
 >(({ className, transition, index, ...props }, ref) => {
+  const cellTransition: Transition = {
+    duration: 0.3,
+    delay: index * 0.2,
+    ...transition,
+  };
+
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      transition={{
-        duration: 0.3,
-        delay: index * 0.2,
-        delayChildren: transition?.delayChildren ?? 0.2,
-      }}
-      className={`relative overflow-hidden rounded-xl shadow-xl ${areaClasses[index]}`}
+      transition={cellTransition}
+      className={cn(
+        "relative overflow-hidden rounded-xl shadow-xl",
+        areaClasses[index],
+        className,
+      )}
       {...props}
     />
   );
