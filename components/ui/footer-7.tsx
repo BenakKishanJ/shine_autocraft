@@ -81,28 +81,33 @@ export const Footer7 = ({
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (
-    <section className="py-12 bg-background">
-      <div className="container mx-auto">
-        <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
-          <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
+    <section className="py-12 md:py-16 lg:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex w-full flex-col justify-between gap-8 md:gap-10 lg:gap-12 lg:flex-row lg:items-start lg:text-left">
+          <div className="flex w-full flex-col justify-between gap-4 sm:gap-6 lg:items-start">
             {/* Logo */}
-            <div className="flex items-center gap-2 lg:justify-start">
+            <div className="flex items-center gap-2 sm:gap-3 lg:justify-start">
               <a href={logo.url}>
                 <img
                   src={logo.src}
                   alt={logo.alt}
                   title={logo.title}
-                  className="h-15"
+                  className="h-12 sm:h-15"
                 />
               </a>
-              <h2 className="text-2xl font-extrabold">{logo.title}</h2>
+              <h2 className="text-xl sm:text-2xl font-extrabold">
+                {logo.title}
+              </h2>
             </div>
-            <p className="max-w-[70%] text-sm text-muted-foreground">
+            <p className="max-w-full sm:max-w-[80%] lg:max-w-[70%] text-sm sm:text-base text-muted-foreground">
               {description}
             </p>
-            <ul className="flex items-center space-x-6 text-muted-foreground">
+            <ul className="flex items-center space-x-4 sm:space-x-6 text-muted-foreground">
               {socialLinks.map((social, idx) => (
-                <li key={idx} className="font-medium hover:text-primary">
+                <li
+                  key={idx}
+                  className="font-medium hover:text-primary transition-colors"
+                >
                   <a href={social.href} aria-label={social.label}>
                     {social.icon}
                   </a>
@@ -110,15 +115,17 @@ export const Footer7 = ({
               ))}
             </ul>
           </div>
-          <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
+          <div className="grid w-full gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:gap-12 xl:gap-20">
             {sections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
-                <h3 className="mb-4 font-bold">{section.title}</h3>
-                <ul className="space-y-3 text-sm text-muted-foreground">
+                <h3 className="mb-3 sm:mb-4 font-bold text-sm sm:text-base">
+                  {section.title}
+                </h3>
+                <ul className="space-y-2 sm:space-y-3 text-sm text-muted-foreground">
                   {section.links.map((link, linkIdx) => (
                     <li
                       key={linkIdx}
-                      className="font-medium hover:text-primary"
+                      className="font-medium hover:text-primary transition-colors"
                     >
                       <a href={link.href}>{link.name}</a>
                     </li>
@@ -128,12 +135,12 @@ export const Footer7 = ({
             ))}
           </div>
         </div>
-        <div className="mt-8 flex flex-col justify-between gap-4 border-t py-8 text-xs font-medium text-muted-foreground md:flex-row md:items-center md:text-left">
-          <p className="order-2 lg:order-1">{copyright}</p>
-          <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
+        <div className="mt-6 sm:mt-8 flex flex-col justify-between gap-4 border-t py-6 sm:py-8 text-xs sm:text-sm font-medium text-muted-foreground md:flex-row md:items-center md:text-left">
+          <p className="order-2 md:order-1">{copyright}</p>
+          <ul className="order-1 flex flex-col gap-2 sm:flex-row sm:gap-4 md:order-2 md:gap-6">
             {legalLinks.map((link, idx) => (
-              <li key={idx} className="hover:text-primary">
-                <a href={link.href}> {link.name}</a>
+              <li key={idx} className="hover:text-primary transition-colors">
+                <a href={link.href}>{link.name}</a>
               </li>
             ))}
           </ul>

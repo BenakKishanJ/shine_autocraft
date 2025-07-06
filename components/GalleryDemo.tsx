@@ -5,6 +5,8 @@ import {
   GalleryGridCell,
 } from "@/components/blocks/cta-section-with-gallery";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { MoveRight } from "lucide-react";
 
 const IMAGES = [
   "https://images.unsplash.com/photo-1508974239320-0a029497e820?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FyfGVufDB8fDB8fHww",
@@ -30,7 +32,11 @@ export const GalleryDemo = () => {
             drop it off with us.
           </ContainerAnimated>
           <ContainerAnimated>
-            <Button className=" bg-white">Book Your Shine Today</Button>
+            <Button asChild className="bg-white text-black hover:bg-gray-100">
+              <Link href="/gallery">
+                See Our Detailing Results <MoveRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
           </ContainerAnimated>
         </ContainerStagger>
 

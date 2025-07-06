@@ -19,8 +19,7 @@ interface CardProps {
   features: string[];
   url: string;
   color: string;
-  progress: MotionValue<number>;
-  range: [number, number];
+  totalCards: number;
   targetScale: number;
 }
 
@@ -31,82 +30,153 @@ export const Card = ({
   features,
   url,
   color,
-  progress,
-  range,
+  totalCards,
   targetScale,
 }: CardProps) => {
   const container = useRef(null);
+  const mainContainer = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "start start"],
   });
 
+  const { scrollYProgress: mainScrollProgress } = useScroll({
+    target: mainContainer,
+    offset: ["start start", "end end"],
+  });
+
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
-  const scale = useTransform(progress, range, [1, targetScale]);
+  const range: [number, number] = [i * 0.25, 1];
+  const scale = useTransform(mainScrollProgress, range, [1, targetScale]);
 
   return (
     <div
-      ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 text-black pt-20"
+      ref={mainContainer}
+      className="h-screen flex items-center justify-center sticky top-0 text-black pt-12 md:pt-20"
     >
-      <motion.div
-        style={{
-          backgroundColor: color,
-          scale,
-          top: `calc(-5vh + ${i * 25}px)`,
-        }}
-        className={`flex flex-col relative -top-[25%] h-[450px] w-[70%] rounded-md p-10 origin-top`}
+      <div
+        ref={container}
+        className="w-full h-full flex items-center justify-center"
       >
-        <h2 className="text-3xl text-center font-extrabold">{title}</h2>
-        <div className={`flex h-full mt-5 gap-10`}>
-          <div className={`w-[40%] relative top-[10%]`}>
-            <p className="text-sm">{description}</p>
-            <ul className="py-2">
-              {features.map((feature, i) => (
-                <li key={i} className="text-sm list-disc list-inside space-y-1">
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <span className="flex items-center gap-2 pt-2">
-              <a
-                href={"#"}
-                target="_blank"
-                className="underline cursor-pointer"
+        <motion.div
+          style={{
+            backgroundColor: color,
+            scale,
+            top: `calc(-5vh + ${i * 25}px)`,
+          }}
+          className={`flex flex-col relative -top-[25%] h-auto md:h-[450px] w-[95%] sm:w-[85%] md:w-[70%] rounded-md p-4 sm:p-6 md:p-10 origin-top`}
+        >
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-center font-extrabold">
+            {title}
+          </h2>
+          {/* Mobile/Tablet Layout - Image after title, then text */}
+          <div className="flex flex-col md:hidden mt-3 sm:mt-4 gap-4 pb-4">
+            <div
+              className={`relative w-full h-[250px] sm:h-[300px] rounded-lg overflow-hidden `}
+            >
+              <motion.div
+                className={`w-full h-full`}
+                style={{ scale: imageScale }}
               >
-                See more
-              </a>
-              <svg
-                width="22"
-                height="12"
-                viewBox="0 0 22 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
-                  fill="black"
+                <img
+                  src={url}
+                  alt="image"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-              </svg>
-            </span>
+              </motion.div>
+            </div>
+
+            <div className={`w-full flex flex-col flex-grow`}>
+              <p className="text-xs sm:text-sm">{description}</p>
+              <ul className="py-1 sm:py-2">
+                {features.map((feature, i) => (
+                  <li
+                    key={i}
+                    className="text-xs sm:text-sm list-disc list-inside space-y-1"
+                  >
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <span className="flex items-center gap-2 pt-2">
+                <a
+                  href={"#"}
+                  target="_blank"
+                  className="underline cursor-pointer"
+                >
+                  See more
+                </a>
+                <svg
+                  width="22"
+                  height="12"
+                  viewBox="0 0 22 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
+                    fill="black"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
 
-          <div
-            className={`relative w-[60%] h-full rounded-lg overflow-hidden `}
-          >
-            <motion.div
-              className={`w-full h-full`}
-              style={{ scale: imageScale }}
+          {/* Desktop Layout - Side by side */}
+          <div className={`hidden md:flex h-full mt-5 gap-10`}>
+            <div className={`w-[40%] relative top-[10%]`}>
+              <p className="text-sm">{description}</p>
+              <ul className="py-2">
+                {features.map((feature, i) => (
+                  <li
+                    key={i}
+                    className="text-sm list-disc list-inside space-y-1"
+                  >
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <span className="flex items-center gap-2 pt-2">
+                <a
+                  href={"#"}
+                  target="_blank"
+                  className="underline cursor-pointer"
+                >
+                  See more
+                </a>
+                <svg
+                  width="22"
+                  height="12"
+                  viewBox="0 0 22 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
+                    fill="black"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <div
+              className={`relative w-[60%] h-full rounded-lg overflow-hidden `}
             >
-              <img
-                src={url}
-                alt="image"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </motion.div>
+              <motion.div
+                className={`w-full h-full`}
+                style={{ scale: imageScale }}
+              >
+                <img
+                  src={url}
+                  alt="image"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };
@@ -117,15 +187,9 @@ interface ComponentRootProps {
 
 const Component = forwardRef<HTMLElement, ComponentRootProps>(
   ({ projects }, ref) => {
-    const container = useRef(null);
-    const { scrollYProgress } = useScroll({
-      target: container,
-      offset: ["start start", "end end"],
-    });
-
     return (
       <ReactLenis root>
-        <main className="bg-black" ref={container}>
+        <main className="bg-black" ref={ref}>
           <section className="text-white w-full bg-black">
             {projects.map((project, i) => {
               const targetScale = 1 - (projects.length - i) * 0.05;
@@ -138,8 +202,7 @@ const Component = forwardRef<HTMLElement, ComponentRootProps>(
                   color={project.color}
                   description={project.description}
                   features={project.features}
-                  progress={scrollYProgress}
-                  range={[i * 0.25, 1]}
+                  totalCards={projects.length}
                   targetScale={targetScale}
                 />
               );
