@@ -50,6 +50,9 @@ export const Card = ({
   const range: [number, number] = [i * 0.25, 1];
   const scale = useTransform(mainScrollProgress, range, [1, targetScale]);
 
+  // Dynamic offset based on card index and screen size
+  const cardOffset = i * 15; // Reduced from 20px to 15px for tighter stacking
+
   return (
     <div
       ref={mainContainer}
@@ -63,17 +66,17 @@ export const Card = ({
           style={{
             backgroundColor: color,
             scale,
-            top: `calc(-5vh + ${i * 25}px)`,
+            top: `calc(-5vh + ${i * 20}px)`,
           }}
-          className={`flex flex-col relative -top-[25%] h-auto md:h-[450px] w-[95%] sm:w-[85%] md:w-[70%] rounded-md p-4 sm:p-6 md:p-10 origin-top`}
+          className={`flex flex-col relative -top-[25%] h-auto md:h-auto w-[95vw] sm:w-[85vw] md:w-[70vw] max-w-[95%] sm:max-w-[85%] md:max-w-[70%] rounded-md p-3 sm:p-4 md:p-6 origin-top`}
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-center font-extrabold">
+          <h2 className="text-lg sm:text-xl md:text-2xl text-center font-extrabold mb-2 sm:mb-3 md:mb-4">
             {title}
           </h2>
           {/* Mobile/Tablet Layout - Image after title, then text */}
-          <div className="flex flex-col md:hidden mt-3 sm:mt-4 gap-4 pb-4">
+          <div className="flex flex-col md:hidden gap-3 sm:gap-4 min-h-[380px] sm:min-h-[420px]">
             <div
-              className={`relative w-full h-[250px] sm:h-[300px] rounded-lg overflow-hidden `}
+              className={`relative w-full h-[180px] sm:h-[200px] rounded-lg overflow-hidden flex-shrink-0`}
             >
               <motion.div
                 className={`w-full h-full`}
@@ -87,29 +90,33 @@ export const Card = ({
               </motion.div>
             </div>
 
-            <div className={`w-full flex flex-col flex-grow`}>
-              <p className="text-xs sm:text-sm">{description}</p>
-              <ul className="py-1 sm:py-2">
-                {features.map((feature, i) => (
-                  <li
-                    key={i}
-                    className="text-xs sm:text-sm list-disc list-inside space-y-1"
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <span className="flex items-center gap-2 pt-2">
+            <div className={`w-full flex flex-col flex-1 justify-between`}>
+              <div>
+                <p className="text-xs sm:text-sm mb-2 line-clamp-3">
+                  {description}
+                </p>
+                <ul className="mb-3 space-y-1">
+                  {features.slice(0, 4).map((feature, i) => (
+                    <li
+                      key={i}
+                      className="text-xs sm:text-sm list-disc list-inside line-clamp-1"
+                    >
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <span className="flex items-center gap-2 mt-auto">
                 <a
                   href={"#"}
                   target="_blank"
-                  className="underline cursor-pointer"
+                  className="underline cursor-pointer text-xs sm:text-sm"
                 >
                   See more
                 </a>
                 <svg
-                  width="22"
-                  height="12"
+                  width="18"
+                  height="10"
                   viewBox="0 0 22 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -124,24 +131,24 @@ export const Card = ({
           </div>
 
           {/* Desktop Layout - Side by side */}
-          <div className={`hidden md:flex h-full mt-5 gap-10`}>
-            <div className={`w-[40%] relative top-[10%]`}>
-              <p className="text-sm">{description}</p>
-              <ul className="py-2">
+          <div className={`hidden md:flex gap-6 lg:gap-8`}>
+            <div className={`w-[45%] flex flex-col justify-center`}>
+              <p className="text-sm lg:text-base mb-3 lg:mb-4">{description}</p>
+              <ul className="mb-4 lg:mb-6 space-y-1">
                 {features.map((feature, i) => (
                   <li
                     key={i}
-                    className="text-sm list-disc list-inside space-y-1"
+                    className="text-sm lg:text-base list-disc list-inside"
                   >
                     {feature}
                   </li>
                 ))}
               </ul>
-              <span className="flex items-center gap-2 pt-2">
+              <span className="flex items-center gap-2">
                 <a
                   href={"#"}
                   target="_blank"
-                  className="underline cursor-pointer"
+                  className="underline cursor-pointer text-sm lg:text-base"
                 >
                   See more
                 </a>
@@ -161,7 +168,7 @@ export const Card = ({
             </div>
 
             <div
-              className={`relative w-[60%] h-full rounded-lg overflow-hidden `}
+              className={`relative w-[55%] h-[300px] lg:h-[350px] rounded-lg overflow-hidden`}
             >
               <motion.div
                 className={`w-full h-full`}
