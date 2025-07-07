@@ -17,7 +17,7 @@ const projects = [
       "Glass, wheel, and full-body ceramic coatings",
     ],
     link: "car.jpeg",
-    color: "#f2f2f2",
+    color: "#F8F9FA",
   },
   {
     title: "Motorcycle Detailing & Coating",
@@ -30,7 +30,7 @@ const projects = [
       "Protection against road grime, UV, and moisture",
     ],
     link: "bike.jpeg",
-    color: "#cccccc",
+    color: "#DC3545",
   },
   {
     title: "RV & Camper Van Detailing",
@@ -43,7 +43,7 @@ const projects = [
       "Full ceramic coating for paint, wheels, and interior surfaces",
     ],
     link: "van.jpeg",
-    color: "#a5a5a5",
+    color: "#0D6EFD",
   },
   {
     title: "Boat & Marine Surface Protection",
@@ -57,7 +57,7 @@ const projects = [
       "Trim restoration",
     ],
     link: "boat.jpeg",
-    color: "#7f7f7f",
+    color: "#6F42C1",
   },
 ];
 

@@ -56,7 +56,7 @@ export const Card = ({
   return (
     <div
       ref={mainContainer}
-      className="h-screen flex items-center justify-center sticky top-0 text-black pt-12 md:pt-20"
+      className="h-screen flex items-center justify-center sticky top-0 text-white pt-12 md:pt-20"
     >
       <div
         ref={container}
@@ -64,11 +64,12 @@ export const Card = ({
       >
         <motion.div
           style={{
-            backgroundColor: color,
             scale,
             top: `calc(-5vh + ${i * 20}px)`,
+            boxShadow: `0 0 20px ${color}, 0 0 40px ${color}, 0 0 60px ${color}`,
+            borderColor: color,
           }}
-          className={`flex flex-col relative -top-[25%] h-auto md:h-auto w-[95vw] sm:w-[85vw] md:w-[70vw] max-w-[95%] sm:max-w-[85%] md:max-w-[70%] rounded-md p-3 sm:p-4 md:p-6 origin-top`}
+          className={`flex flex-col relative -top-[25%] h-auto md:h-auto w-[95vw] sm:w-[85vw] md:w-[70vw] max-w-[95%] sm:max-w-[85%] md:max-w-[70%] rounded-md p-3 sm:p-4 md:p-6 origin-top bg-card border-2`}
         >
           <h2 className="text-lg sm:text-xl md:text-2xl text-center font-extrabold mb-2 sm:mb-3 md:mb-4">
             {title}
@@ -92,16 +93,17 @@ export const Card = ({
 
             <div className={`w-full flex flex-col flex-1 justify-between`}>
               <div>
-                <p className="text-xs sm:text-sm mb-2 line-clamp-3">
+                <p className="text-xs sm:text-sm mb-2 line-clamp-3 text-muted-foreground">
                   {description}
                 </p>
                 <ul className="mb-3 space-y-1">
                   {features.slice(0, 4).map((feature, i) => (
                     <li
                       key={i}
-                      className="text-xs sm:text-sm list-disc list-inside line-clamp-1"
+                      className="text-xs sm:text-sm line-clamp-1 text-muted-foreground flex items-start"
                     >
-                      {feature}
+                      <span className="text-white mr-2 flex-shrink-0">•</span>
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -110,7 +112,7 @@ export const Card = ({
                 <a
                   href={"#"}
                   target="_blank"
-                  className="underline cursor-pointer text-xs sm:text-sm"
+                  className="underline cursor-pointer text-xs sm:text-sm text-white hover:text-muted-foreground"
                 >
                   See more
                 </a>
@@ -123,7 +125,7 @@ export const Card = ({
                 >
                   <path
                     d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
-                    fill="black"
+                    fill="white"
                   />
                 </svg>
               </span>
@@ -133,12 +135,14 @@ export const Card = ({
           {/* Desktop Layout - Side by side */}
           <div className={`hidden md:flex gap-6 lg:gap-8`}>
             <div className={`w-[45%] flex flex-col justify-center`}>
-              <p className="text-sm lg:text-base mb-3 lg:mb-4">{description}</p>
+              <p className="text-sm lg:text-base mb-3 lg:mb-4 text-muted-foreground">
+                {description}
+              </p>
               <ul className="mb-4 lg:mb-6 space-y-1">
                 {features.map((feature, i) => (
                   <li
                     key={i}
-                    className="text-sm lg:text-base list-disc list-inside"
+                    className="text-sm lg:text-base list-disc list-inside text-muted-foreground"
                   >
                     {feature}
                   </li>
@@ -148,7 +152,7 @@ export const Card = ({
                 <a
                   href={"#"}
                   target="_blank"
-                  className="underline cursor-pointer text-sm lg:text-base"
+                  className="underline cursor-pointer text-sm lg:text-base text-white hover:text-muted-foreground"
                 >
                   See more
                 </a>
@@ -161,7 +165,7 @@ export const Card = ({
                 >
                   <path
                     d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
-                    fill="black"
+                    fill="white"
                   />
                 </svg>
               </span>
