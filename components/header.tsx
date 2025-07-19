@@ -9,9 +9,9 @@ import Image from "next/image";
 
 const menuItems = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "#services" },
+  { name: "Services", href: "/#services" },
   { name: "Gallery", href: "/gallery" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export const HeroHeader = () => {
@@ -101,7 +101,7 @@ export const HeroHeader = () => {
                 {/* Call Now — show only when scrolled */}
                 {isScrolled && (
                   <Button asChild variant="outline" size="sm">
-                    <a href="tel:+1234567890">
+                    <a href="tel:+12368807525">
                       <span>Call Now</span>
                     </a>
                   </Button>
@@ -110,7 +110,7 @@ export const HeroHeader = () => {
                 {/* Get a Free Quote — show only when scrolled */}
                 {isScrolled && (
                   <Button asChild size="sm">
-                    <Link href="/#quote">
+                    <Link href="/booking">
                       <span>Get a Free Quote</span>
                     </Link>
                   </Button>
@@ -119,8 +119,8 @@ export const HeroHeader = () => {
                 {/* Get Started — show only when NOT scrolled */}
                 {!isScrolled && (
                   <Button asChild size="sm">
-                    <Link href="/#quote">
-                      <span>Get Started</span>
+                    <Link href="/booking">
+                      <span>Book Now</span>
                     </Link>
                   </Button>
                 )}

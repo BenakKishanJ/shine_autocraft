@@ -17,7 +17,7 @@ export const Contact7 = ({
   description = "Get in touch with our detailing team",
   email = "contact@elitedetail.com",
   address = "123 Auto Spa Lane, Detroit, MI 48201",
-  phone = "+1 (555) 123-4567",
+  phone = "+1 (236) 880-7525",
 }: Contact7Props) => {
   const handlePhoneClick = () => {
     if (typeof window !== "undefined") {
@@ -39,7 +39,10 @@ export const Contact7 = ({
   };
 
   return (
-    <section className="bg-black text-white py-16 md:py-20 lg:py-24 xl:py-32">
+    <section
+      className="bg-black text-white py-16 md:py-20 lg:py-24 xl:py-32"
+      id="contact"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">

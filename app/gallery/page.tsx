@@ -80,9 +80,11 @@ export default function GalleryPage() {
             Browse our services or book an appointment to give your car the
             Elite treatment.
           </p>
-          <button className="bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
-            Book Your Detailing
-          </button>
+          <a href="/booking">
+            <button className="bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+              Book Your Detailing
+            </button>
+          </a>
         </div>
       </section>
     </main>

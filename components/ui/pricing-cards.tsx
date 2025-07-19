@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 
 function Pricing() {
   return (
-    <div className="w-full py-16 md:py-20 lg:py-40 bg-black">
+    <div className="w-full py-16 md:py-20 lg:py-40 bg-black" id="services">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex text-center justify-center items-center gap-4 flex-col">
           <Badge variant="secondary">Service Tiers</Badge>
@@ -74,12 +74,14 @@ function Pricing() {
                 </div>
               </CardContent>
               <div className="p-4 sm:p-6 pt-0">
-                <Button
-                  variant="outline"
-                  className="gap-2 w-full text-sm sm:text-base"
-                >
-                  Get Custom Quote <MoveRight className="w-4 h-4" />
-                </Button>
+                <a href="/booking">
+                  <Button
+                    variant="outline"
+                    className="gap-2 w-full text-sm sm:text-base"
+                  >
+                    Get Custom Quote <MoveRight className="w-4 h-4" />
+                  </Button>
+                </a>
               </div>
             </Card>
 
@@ -138,12 +140,14 @@ function Pricing() {
                 </div>
               </CardContent>
               <div className="p-4 sm:p-6 pt-0">
-                <Button
-                  variant="outline"
-                  className="gap-2 w-full text-sm sm:text-base"
-                >
-                  Get Custom Quote <MoveRight className="w-4 h-4" />
-                </Button>
+                <a href="/booking">
+                  <Button
+                    variant="outline"
+                    className="gap-2 w-full text-sm sm:text-base"
+                  >
+                    Get Custom Quote <MoveRight className="w-4 h-4" />
+                  </Button>
+                </a>
               </div>
             </Card>
 
@@ -205,12 +209,14 @@ function Pricing() {
                 </div>
               </CardContent>
               <div className="p-4 sm:p-6 pt-0">
-                <Button
-                  variant="outline"
-                  className="gap-2 w-full text-sm sm:text-base"
-                >
-                  Get Custom Quote <MoveRight className="w-4 h-4" />
-                </Button>
+                <a href="/booking">
+                  <Button
+                    variant="outline"
+                    className="gap-2 w-full text-sm sm:text-base"
+                  >
+                    Get Custom Quote <MoveRight className="w-4 h-4" />
+                  </Button>
+                </a>
               </div>
             </Card>
           </div>{" "}

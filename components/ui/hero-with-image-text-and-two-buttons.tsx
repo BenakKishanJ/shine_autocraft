@@ -61,20 +61,24 @@ function Hero() {
               </i>
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-              <Button
-                size="lg"
-                className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base"
-                variant="outline"
-              >
-                Jump on a call <PhoneCall className="w-4 h-4" />
-              </Button>
-              <Button
-                size="lg"
-                className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base"
-              >
-                Get a free Quote
-                <MoveRight className="w-4 h-4" />
-              </Button>
+              <a href="tel:+12368807525">
+                <Button
+                  size="lg"
+                  className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base"
+                  variant="outline"
+                >
+                  Jump on a call <PhoneCall className="w-4 h-4" />
+                </Button>
+              </a>
+              <a href="/booking">
+                <Button
+                  size="lg"
+                  className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base"
+                >
+                  Get a free Quote
+                  <MoveRight className="w-4 h-4" />
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -104,20 +108,24 @@ function Hero() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-              <Button
-                size="lg"
-                className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base"
-                variant="outline"
-              >
-                Jump on a call <PhoneCall className="w-4 h-4" />
-              </Button>
-              <Button
-                size="lg"
-                className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base"
-              >
-                Get a free Quote
-                <MoveRight className="w-4 h-4" />
-              </Button>
+              <a href="tel:+12368807525">
+                <Button
+                  size="lg"
+                  className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base"
+                  variant="outline"
+                >
+                  Jump on a call <PhoneCall className="w-4 h-4" />
+                </Button>
+              </a>
+              <a href="/booking">
+                <Button
+                  size="lg"
+                  className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base"
+                >
+                  Get a free Quote
+                  <MoveRight className="w-4 h-4" />
+                </Button>
+              </a>
             </div>
           </div>
           <div className="bg-muted rounded-md aspect-square sm:aspect-[4/3] lg:aspect-square relative z-10 order-first lg:order-last">
