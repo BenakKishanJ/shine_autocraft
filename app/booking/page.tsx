@@ -22,20 +22,20 @@ export default function BookingPage() {
       </section>
 
       {/* Booking Form Section */}
-      <section className="pb-20 px-5 sm:px-10 lg:px-20">
+      <section className="pb-20 px-2 sm:px-6 lg:px-20">
         <div className="max-w-5xl mx-auto">
           {/* Form Container */}
-          <div className="bg-gradient-to-b from-stone-900/50 to-stone-800/30 backdrop-blur-sm border border-stone-700/50 rounded-2xl p-6 md:p-8 shadow-2xl animate-fade-in-up animation-delay-200">
-            <div className="mb-6">
+          <div className="bg-gradient-to-b from-stone-900/50 to-stone-800/30 backdrop-blur-sm border border-stone-700/50 rounded-2xl p-2 sm:p-6 md:p-8 shadow-2xl animate-fade-in-up animation-delay-200">
+            {/* <div className="mb-6 px-2 pt-2">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                Service Request Form
+                Book Your Car Care Appointment
               </h2>
               <p className="text-stone-300 text-sm md:text-base">
                 Please provide your details and service preferences. Our team
                 will review your request and contact you to confirm your
                 appointment.
               </p>
-            </div>
+            </div> */}
 
             {/* Responsive iframe container */}
             <div className="relative w-full overflow-hidden rounded-lg bg-white/5 backdrop-blur-sm">
