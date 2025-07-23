@@ -3,8 +3,8 @@ import { TestimonialsSection } from "@/components/blocks/testimonials-with-marqu
 const testimonials = [
   {
     author: {
-      name: "James Wilson",
-      handle: "@jamesdetailing",
+      name: "Jennie Wilson",
+      handle: "@jenniferwilson07",
       avatar:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
     },
