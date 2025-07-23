@@ -28,6 +28,7 @@ export function TestimonialsSection({
         "py-12 sm:py-24 md:py-32 px-0",
         className,
       )}
+      id="testimonials"
     >
       <div className="mx-auto flex max-w-container flex-col items-center gap-4 text-center sm:gap-16">
         <div className="flex flex-col items-center gap-4 px-4 sm:gap-8">
@@ -57,4 +58,3 @@ export function TestimonialsSection({
     </section>
   );
 }
-

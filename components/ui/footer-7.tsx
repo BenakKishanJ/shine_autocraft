@@ -29,19 +29,19 @@ const defaultSections = [
   {
     title: "Services",
     links: [
-      { name: "Paint Correction", href: "#" },
-      { name: "Ceramic Coating", href: "#" },
-      { name: "Detailing Packages", href: "#" },
-      { name: "Mobile & Drop-off", href: "#" },
+      { name: "Paint Correction", href: "/#services" },
+      { name: "Ceramic Coating", href: "/#services" },
+      { name: "Detailing Packages", href: "/#services" },
+      { name: "Mobile & Drop-off", href: "/#services" },
     ],
   },
   {
     title: "Company",
     links: [
       { name: "About Us", href: "#" },
-      { name: "Gallery", href: "#" },
-      { name: "Testimonials", href: "#" },
-      { name: "Contact", href: "#" },
+      { name: "Gallery", href: "/gallery" },
+      { name: "Testimonials", href: "/#testimonials" },
+      { name: "Contact", href: "/#contact" },
     ],
   },
   {
@@ -56,10 +56,26 @@ const defaultSections = [
 ];
 
 const defaultSocialLinks = [
-  { icon: <FaInstagram className="size-5" />, href: "#", label: "Instagram" },
-  { icon: <FaFacebook className="size-5" />, href: "#", label: "Facebook" },
-  { icon: <FaTwitter className="size-5" />, href: "#", label: "Twitter" },
-  { icon: <FaLinkedin className="size-5" />, href: "#", label: "LinkedIn" },
+  {
+    icon: <FaInstagram className="size-5" />,
+    href: "https://www.instagram.com/shineautocraft/",
+    label: "Instagram",
+  },
+  {
+    icon: <FaFacebook className="size-5" />,
+    href: "https://www.instagram.com/shineautocraft/",
+    label: "Facebook",
+  },
+  {
+    icon: <FaTwitter className="size-5" />,
+    href: "https://www.instagram.com/shineautocraft/",
+    label: "Twitter",
+  },
+  {
+    icon: <FaLinkedin className="size-5" />,
+    href: "https://www.instagram.com/shineautocraft/",
+    label: "LinkedIn",
+  },
 ];
 
 const defaultLegalLinks = [
@@ -77,7 +93,7 @@ export const Footer7 = ({
   sections = defaultSections,
   description = "Premium auto detailing, ceramic coating, and paint restoration services in Surrey, BC. We bring back that showroom shine.",
   socialLinks = defaultSocialLinks,
-  copyright = "© 2025 Shine Autocraft. All rights reserved.",
+  copyright = " 2025 Shine Autocraft. All rights reserved.",
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (
