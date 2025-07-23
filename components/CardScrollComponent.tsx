@@ -43,7 +43,7 @@ const projects = [
       "Full ceramic coating for paint, wheels, and interior surfaces",
     ],
     link: "van.jpeg",
-    color: "#0D6EFD",
+    color: "#00ECFA",
   },
   {
     title: "Boat & Marine Surface Protection",
