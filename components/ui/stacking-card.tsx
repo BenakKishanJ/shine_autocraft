@@ -71,9 +71,22 @@ export const Card = ({
             {title}
           </h2>
 
+          {/* Image Section - Always on top after title */}
+          <div className="mb-6">
+            <div className="relative w-full h-48 md:h-64 lg:h-80 rounded-lg overflow-hidden bg-gray-900">
+              <motion.img
+                src={url}
+                alt={title}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ scale: imageScale }}
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          {/* Content Section - Below image */}
           <div className="flex flex-col lg:flex-row gap-6">
-            {/* Content Section */}
-            <div className="flex-1 lg:w-1/2">
+            <div className="flex-1">
               <p className="text-sm md:text-base mb-4 text-muted-foreground leading-relaxed">
                 {description}
               </p>
@@ -88,19 +101,6 @@ export const Card = ({
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Image Section */}
-            <div className="flex-1 lg:w-1/2">
-              <div className="relative w-full h-48 md:h-64 lg:h-80 rounded-lg overflow-hidden bg-gray-900">
-                <motion.img
-                  src={url}
-                  alt={title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{ scale: imageScale }}
-                  loading="lazy"
-                />
-              </div>
             </div>
           </div>
         </div>
