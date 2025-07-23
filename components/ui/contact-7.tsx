@@ -15,8 +15,8 @@ interface Contact7Props {
 export const Contact7 = ({
   title = "Contact Us",
   description = "Get in touch with our detailing team",
-  email = "contact@elitedetail.com",
-  address = "123 Auto Spa Lane, Detroit, MI 48201",
+  email = "shineautocraft@gmail.com",
+  address = "201A Street Langley, British Columbia, Canada",
   phone = "+1 (236) 880-7525",
 }: Contact7Props) => {
   const handlePhoneClick = () => {
@@ -123,9 +123,9 @@ export const Contact7 = ({
           {/* Right Column - Google Maps */}
           <div className="h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] rounded-lg overflow-hidden border border-neutral-800 order-first lg:order-last">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573209877!2d-73.9855429245256!3d40.75889547138951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1696000000000!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2612.033561512032!2d-122.66706352352134!3d49.10500287136665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDnCsDA2JzE4LjAiTiAxMjLCsDM5JzUyLjIiVw!5e0!3m2!1sen!2sin!4v1753291197886!5m2!1sen!2sin"
+              width="600"
+              height="450"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
